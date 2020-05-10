@@ -1,0 +1,30 @@
+﻿{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<div class="row">
+
+    <div class="col-md-4">
+        <form method="post">
+            {{ form1.csrf_token }}
+            {{ wtf.form_field(form1.team)}}
+            {{ wtf.form_field(form1.pos)}}
+            <input class="btn btn-primary" type="submit" value="submit">
+        </form>
+    </div>
+    <div class="col-md-8">
+        <div class="row">
+            <h4>regular ppg and per 36 ppg</h4>
+            <img src={{ chart }} class="img-thumbnail" alt="not found">
+        </div>
+    </div>
+</div>
+
+<hr />
+
+
+
+<hr />
+
+    {% endblock %}

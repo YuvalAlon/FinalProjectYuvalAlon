@@ -1,0 +1,4 @@
+Flask<1
+flask-bootstrap
+flask-wtf
+pandas

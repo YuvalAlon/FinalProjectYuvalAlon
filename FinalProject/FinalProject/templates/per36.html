@@ -1,0 +1,152 @@
+﻿{% extends "layout.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block content %}
+
+<h2>{{ title }}.</h2>
+<h3>{{ message }}</h3>
+
+<div class="row my-grid-borders">
+    <p></p>
+</div>
+<div class="row my-grid-borders">
+    <div class="col-md-2 my-grid-borders"><img class="contain" src={{ img_zionwilliamson }} alt='Missing' style="width:250px;height:250px;"></div>
+    <div class="col-md-2 my-grid-borders"><img class="contain" src={{ img_lebronjames }} alt='Missing' style="width:250px;height:250px;"></div>
+    <div class="col-md-2 my-grid-borders"><img class="contain" src={{ img_kobebeans }} alt='Missing' style="width:250px;height:250px;"></div>
+    <div class="col-md-2 my-grid-borders"><img class="contain" src={{ img_michaeljordan }} alt='Missing' style="width:250px;height:250px;"></div>
+</div>
+<div class="ltr">
+    <h2>per 36's Dataset Fields</h2>
+</div>
+<div class="ltr">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Field</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Position</td>
+                <td class="ltr">the position of the player</td>
+            </tr>
+            <tr>
+                <td>Age</td>
+                <td>The age of the player</td>
+            </tr>
+            <tr>
+                <td>Team</td>
+                <td>The team the player plays for</td>
+            </tr>
+            <tr>
+                <td>Games</td>
+                <td>The amount of games the player has played</td>
+            </tr>
+            <tr>
+                <td>Minutes played</td>
+                <td>The amount of minutes is 36</td>
+            </tr>
+            <tr>
+                <td>Field goals</td>
+                <td>The amount of shots the player would score if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>Field goals attempts</td>
+                <td>The amount of shots the player would attempt if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>three points</td>
+                <td>The amount of three points the player would score if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>three points attempts</td>
+                <td>The amount of three points the player would attempt if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>three points precentage</td>
+                <td>The players three points precentage</td>
+            </tr>
+            <tr>
+                <td>two points</td>
+                <td>The amount of two points shot the player would score if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>two points attempts</td>
+                <td>The amount of two points the player would attempts per game if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>two point precentage</td>
+                <td>The player's two points precentage</td>
+            </tr>
+            <tr>
+                <td>Free throws</td>
+                <td>The amount of free throws the player would score if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>free throws attempts</td>
+                <td>The amount of free throws the player would attempt if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>free throw precentage</td>
+                <td>the player's free throw precentage</td>
+            </tr>
+            <tr>
+                <td>offensive rebound</td>
+                <td>The amount of offensive rebounds the player would take per game if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>defensive rebound</td>
+                <td>The amount of defensive rebounds the player would play if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>total rebounds per game</td>
+                <td>The amount of rebounds the player would take if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>assists</td>
+                <td>The amount of the player's assists per game if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>steals</td>
+                <td>the amount of the steals the player steal on average per game if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>blocks</td>
+                <td>the amount of blocks the player block on average per game if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>turn overs</td>
+                <td>The amount of times the player would have turn overed the ball per game if he played 36 minutes</td>
+            </tr>
+            <tr>
+                <td>personal fouls</td>
+                <td>The amount of fouls the player fouls on average per game if he played 36 minutes per game</td>
+            </tr>
+            <tr>
+                <td>points</td>
+                <td>the amount of points the player would have per game if he played 36 minutes per game</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row my-grid-borders">
+    <div class="col-md-5 my-grid-borders">
+        <form method="post">
+            {{ form1.csrf_token }}
+            <input class="btn btn-success" type="submit" name="action" value="Expand">
+        </form>
+    </div>
+    <div class="col-md-5 my-grid-borders">
+        <form method="post">
+            {{ form2.csrf_token }}
+            <input class="btn btn-danger" type="submit" name="action" value="Collapse">
+        </form>
+    </div>
+</div>
+<div class="row my-grid-borders">
+    {{ raw_data_table | safe}}
+</div>
+
+
+{% endblock %}

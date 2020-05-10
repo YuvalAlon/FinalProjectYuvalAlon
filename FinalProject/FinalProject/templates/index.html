@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<div class="jumbotron">
+    <h1 class="ltr">NBA players regular stats and per 36</h1>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2 class="ltr">the subject of the project</h2>
+        <p class="ltr">
+            The NBA players stats help define a lot of things, they help choose all the major awards winner like MVP, MIP, 6MONY etc.
+            <br /><br />
+            the player stat are how many points or assist he made total divided by the games he has played, those are the regular stats, but there is another stat called per 36
+            <br /><br />
+            the per 36 stat shows what the player stats would look like if he player 36 minutes every game, for example if you play 2 games and 18 minutes in each one and you score 20 in both of them, your regular points per game would be 20 points per game but per 36 minutes it will be 40 points per game
+            <br /><br />
+            I think that it an intresting stat because it can help you see which players are the most efficient for the time they are playing and wether you should play them more, or you can see which player should get less play time.
+            <br /><br />
+            in this project you will be able to find out players regular stats and per 36 stats and compare them easily which I think could be very helpful to check wether or not the player is efficient and should get more minutes
+
+        </p>
+    </div>
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-5">
+        <br /><br /><br /><br /><br />
+        <img class="contain" src={{ img_nbalogo }} alt='Missing'>
+    </div>
+</div>
+
+{% endblock %}
