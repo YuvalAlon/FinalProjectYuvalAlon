@@ -197,7 +197,7 @@ def Login():
     if (request.method == 'POST' and form.validate()):
         if (db_Functions.IsLoginGood(form.username.data, form.password.data)):
             flash('Login approved!')
-            redirect('Query')
+            return redirect('Query')
             #return redirect('<were to go if login is good!')
         else:
             flash('Error in - Username and/or password')
