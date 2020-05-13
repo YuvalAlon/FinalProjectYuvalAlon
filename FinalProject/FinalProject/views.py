@@ -252,6 +252,7 @@ def Query():
         fig = plt.figure()
         ax = fig.add_subplot(111)
         df3.plot(kind = "bar", ax = ax)
+        ax.plot(loc='upper right')
         chart = plot_to_img(fig)
 
     return render_template(
