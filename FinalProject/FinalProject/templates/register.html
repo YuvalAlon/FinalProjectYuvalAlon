@@ -21,12 +21,14 @@
     {{ form.csrf_token }}
     <table>
         <tr>
+            <!-- adds the first name to the form -->
             <td>
                 {{ form.FirstName.label }}
             </td>
             <td>
                 {{ form.FirstName }}
             </td>
+            <!-- checks if the first name is available -->
             <td>
                 {% if form.FirstName.errors %}
                 <ul class="text-danger">{% for error in form.FirstName.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -34,12 +36,14 @@
             </td>
         </tr>
         <tr>
+            <!-- adds the last name to the form -->
             <td>
                 {{ form.LastName.label }}
             </td>
             <td>
                 {{ form.LastName }}
             </td>
+            <!-- checks if the lastname is available -->
             <td>
                 {% if form.LastName.errors %}
                 <ul class="text-danger">{% for error in form.LastName.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -47,12 +51,14 @@
             </td>
         </tr>
         <tr>
+            <!-- adds the phone number to the form -->
             <td>
                 {{ form.PhoneNum.label }}
             </td>
             <td>
                 {{ form.PhoneNum }}
             </td>
+            <!-- checks if the phone number is available-->
             <td>
                 {% if form.PhoneNum.errors %}
                 <ul class="text-danger">{% for error in form.PhoneNum.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -60,12 +66,14 @@
             </td>
         </tr>
         <tr>
+            <!-- adds the email address to the form -->
             <td>
                 {{ form.EmailAddr.label }}
             </td>
             <td>
                 {{ form.EmailAddr }}
             </td>
+            <!-- checks if the email is available -->
             <td>
                 {% if form.EmailAddr.errors %}
                 <ul class="text-danger">{% for error in form.EmailAddr.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -73,12 +81,14 @@
             </td>
         </tr>
         <tr>
+            <!-- adds the username to the form -->
             <td>
                 {{ form.username.label }}
             </td>
             <td>
                 {{ form.username }}
             </td>
+            <!-- checks if the username is availale -->
             <td>
                 {% if form.username.errors %}
                 <ul class="text-danger">{% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -86,12 +96,14 @@
             </td>
         </tr>
         <tr>
+            <!-- adds the password to the form -->
             <td>
                 {{ form.password.label }}
             </td>
             <td>
                 {{ form.password }}
             </td>
+            <!-- checks if the password is available -->
             <td>
                 {% if form.password.errors %}
                 <ul class="text-danger">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
@@ -101,6 +113,7 @@
         <tr>
             <td></td>
             <td>
+                <!-- adds the sumbit button -->
                 <div class="input submit">
                     <input type="submit" value="Register">
                 </div>

@@ -20,6 +20,8 @@ class CollapseForm(FlaskForm):
 	value="Collapse"
 
 class QueryForm(FlaskForm):
+	# adds the team choosing option
 	team = SelectField("enter team",validators = [DataRequired])
+	#adds the position choosing option
 	pos = SelectField("enter position", validators = [DataRequired], choices = [("C", "Center"),("PF", "Power Forward"), ("SF", "Small Forward"), ("SG", "Shooting Guard"), ("PG", "Point Guard")])
 	submit = SubmitField("sumbit")

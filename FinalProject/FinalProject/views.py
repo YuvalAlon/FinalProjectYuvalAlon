@@ -38,8 +38,6 @@ from wtforms import Form, BooleanField, StringField, PasswordField, validators
 from wtforms import TextField, TextAreaField, SubmitField, SelectField, DateField
 from wtforms import ValidationError
 
-
-
 from FinalProject.models.QueryFormStructure import UserRegistrationFormStructure
 from FinalProject.models.QueryFormStructure import UserRegistrationFormStructure 
 from FinalProject.models.QueryFormStructure import LoginFormStructure
@@ -59,6 +57,7 @@ def home():
     """Renders the home page."""
     return render_template(
         'index.html',
+        # change the name of the page
         title='Home Page',
         year=datetime.now().year,
         img_nbalogo = '/static/img/nbalogo.png'
@@ -70,6 +69,7 @@ def contact():
         'contact.html',
         title='Contact',
         year=datetime.now().year,
+        #add the images
         img_imageskies = '/static/img/imageskies.jpg',
         img_tichonet = '/static/img/tichonet.png'
     )
@@ -91,7 +91,6 @@ def regularstats():
     """Renders the about page."""
     form1 = ExpandForm()
     form2 = CollapseForm()
-    # df = pd.read_csv(path.join(path.dirname(__file__), 'static\\data\\regular.csv'))
     df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/regular.csv'))
     raw_data_table = ''
 
@@ -108,6 +107,7 @@ def regularstats():
         title='regularstats',
         year=datetime.now().year,
         message='regular stats dataset page.',
+        #add the images
         img_lebronjames = '/static/img/lebronjames.jpg',
         img_kobebeans = '/static/img/kobebeans.jpg',
         img_zionwilliamson = '/static/img/zionwilliamson.jpg',
@@ -141,6 +141,7 @@ def per36():
         title='per36',
         year=datetime.now().year,
         message='per36 dataset page',
+        # adds the pictures
         img_lebronjames = '/static/img/lebronjames.jpg',
         img_kobebeans = '/static/img/kobebeans.jpg',
         img_zionwilliamson = '/static/img/zionwilliamson.jpg',
@@ -161,6 +162,7 @@ def data():
         title='Data',
         year=datetime.now().year,
         message='My data page.',
+        # adds all the pictures
         img_zionwilliamson = '/static/img/zionwilliamson.jpg',
         img_kobebeans = '/static/img/kobebeans.jpg',
         img_michaeljordan = '/static/img/michaeljordan.jpg',
@@ -172,12 +174,12 @@ def Register():
     form = UserRegistrationFormStructure(request.form)
 
     if (request.method == 'POST' and form.validate()):
+        # checks if the username is available with all the other stuff (gmail ect) if yes it sends to the login page, if not it says username already exists
         if (not db_Functions.IsUserExist(form.username.data)):
             db_Functions.AddNewUser(form)
             db_table = ""
-
-            flash('Thank You, You Will Register Now :) '+ form.FirstName.data + " " + form.LastName.data )
             # Here you should put what to do (or were to go) if registration was good
+            return redirect ("login")
         else:
             flash('Error: User with this Username already exist! - '+ form.username.data)
             form = UserRegistrationFormStructure(request.form)
@@ -196,10 +198,10 @@ def Login():
 
     if (request.method == 'POST' and form.validate()):
         if (db_Functions.IsLoginGood(form.username.data, form.password.data)):
-            flash('Login approved!')
+            #sends to query page
             return redirect('Query')
-            #return redirect('<were to go if login is good!')
         else:
+            #write that either the name or the password are incorrect
             flash('Error in - Username and/or password')
    
     return render_template(
@@ -215,17 +217,17 @@ def Query():
     form1 = QueryForm()
     chart = 'static/img/nbalogo.png'
 
-   
+   #adds both of the datasets
     df = pd.read_csv(path.join(path.dirname(__file__), 'static/data/regular.csv'))
     df_36 = pd.read_csv(path.join(path.dirname(__file__), 'static/data/per36.csv'))
-
+    #adds the choises as ("Y")("Y") template
     l = list(df["Tm"])
     s = set(l)
     z = zip(s,s)
     l = list(z)
 
     form1.team.choices = l 
-
+    #get rid of all the useless stats for the project, leave the team, position, points and player's name
     if request.method == 'POST':
         team = form1.team.data
         pos = form1.pos.data
@@ -250,7 +252,6 @@ def Query():
         fig = plt.figure()
         ax = fig.add_subplot(111)
         df3.plot(kind = "bar", ax = ax)
-
         chart = plot_to_img(fig)
 
     return render_template(

@@ -39,6 +39,7 @@
                     {{ form.username }}
                 </td>
                 <td>
+                    <!-- checks if the username is valid -->
                     {% if form.username.errors %}
                     <ul class="text-danger">{% for error in form.username.errors %}<li>{{ error }}</li>{% endfor %}</ul>
                     {% endif %}
@@ -52,6 +53,7 @@
                     {{ form.password }}
                 </td>
                 <td>
+                    <!-- checks if the password is valid -->
                     {% if form.password.errors %}
                     <ul class="text-danger">{% for error in form.password.errors %}<li>{{ error }}</li>{% endfor %}</ul>
                     {% endif %}
@@ -60,10 +62,11 @@
             <tr>
                 <td></td>
                 <td>
+                    <!-- adds the sumbit button -->
                     <div class="input submit">
                         <input type="submit" value="Login">
                     </div>
-                <td>
+<td>
                 <td></td>
             </tr>
         </table>
